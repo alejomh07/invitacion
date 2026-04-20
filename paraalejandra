@@ -1,0 +1,156 @@
+
+!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Alejandra 💖</title>
+
+<style>
+    .foto {
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CONTENEDOR */
+.card {
+    width: 360px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+/* TEXTO */
+h1 {
+    font-size: 20px;
+}
+
+#frase {
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+/* BOTONES */
+.buttons {
+    position: relative;
+    height: 80px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff4b5c;
+    color: white;
+    z-index: 2;
+}
+
+.no {
+    background: #999;
+    position: absolute;
+}
+
+/* RESPUESTA */
+#respuesta {
+    margin-top: 10px;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+/* MAPA */
+iframe {
+    margin-top: 10px;
+    width: 100%;
+    height: 130px;
+    border-radius: 10px;
+    border: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+    <img src="foto.jpeg" class="foto">
+    <h1>💖 Para Alejandra 💖</h1>
+    <p id="frase">Haz clic aquí 💕</p>
+
+    <div class="buttons">
+        <button class="yes" onclick="aceptar()">Sí 💘</button>
+        <button class="no" id="noBtn">No 😢</button>
+    </div>
+
+    <div id="respuesta"></div>
+
+    <iframe 
+    src="https://www.google.com/maps?q=Freedom+Lounge+Quito&z=14&output=embed">
+    </iframe>
+
+</div>
+
+<script>
+
+/* FRASES */
+let frases = [
+"Hoy no es un día cualquiera...",
+"Ya han pasado 6 meses increíbles contigo 💕",
+"Cada momento a tu lado ha sido especial ✨",
+"Y quiero seguir creando recuerdos contigo...",
+"Por eso quiero invitarte a algo muy especial 💖",
+"Sábado 25 de Abril de 2026 a las 19:00pm...",
+"En 🍃 FREEDOM LOUNGE 🍃",
+"Será una noche mágica 🌙",
+"¿Aceptas esta cita? 💘"
+];
+
+let index = 0;
+
+let fraseEl = document.getElementById("frase");
+
+fraseEl.addEventListener("click", () => {
+    if(index < frases.length){
+        fraseEl.innerHTML = frases[index];
+        index++;
+    }
+});
+
+/* BOTÓN SÍ */
+function aceptar() {
+    document.getElementById("respuesta").innerHTML =
+    "😍 Sabía que dirías que sí... Prepárate para una noche inolvidable 💖";
+}
+
+/* BOTÓN NO QUE HUYE BIEN */
+let noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    let x = Math.random() * 250;
+    let y = Math.random() * 50;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+</script>
+
+</body>
+</html>
